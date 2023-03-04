@@ -38,6 +38,7 @@ const ComputersCanvas = () => {
 
 	return (
 		<Canvas
+			resize={{ scroll: false }}
 			frameloop="demand"
 			shadows
 			dpr={[1, 2]}

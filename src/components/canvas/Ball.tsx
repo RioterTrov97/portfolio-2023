@@ -40,6 +40,7 @@ const Ball = ({ imgUrl = '' }) => {
 const BallCanvas = ({ icon = '' }) => {
 	return (
 		<Canvas
+			resize={{ scroll: false }}
 			frameloop="demand"
 			dpr={[1, 2]}
 			gl={{ preserveDrawingBuffer: true }}>
