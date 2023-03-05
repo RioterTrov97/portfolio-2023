@@ -1,3 +1,4 @@
+import { useBreakpointValue } from '@chakra-ui/react';
 import {
 	About,
 	Contact,
@@ -10,8 +11,13 @@ import {
 } from './components';
 
 const App = () => {
+	const isMobile = useBreakpointValue(
+		{ base: true, lg: false },
+		{ ssr: false }
+	);
+
 	return (
-		<div className="relative z-0 bg-primary">
+		<div className="relative z-0 bg-primary overflow-hidden max-w-full">
 			<div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
 				<Navbar />
 				<Hero />
@@ -22,7 +28,7 @@ const App = () => {
 			<Works />
 			<div className="relative z-0">
 				<Contact />
-				<StarsCanvas />
+				{!isMobile && <StarsCanvas />}
 			</div>
 		</div>
 	);

@@ -28,6 +28,8 @@ import algo from './algo.png';
 import swordy from './swordy.png';
 import trailerzz from './trailerzz.png';
 
+import desktop from './desktop.png';
+
 export {
 	logo,
 	backend,
@@ -55,4 +57,5 @@ export {
 	algo,
 	swordy,
 	trailerzz,
+	desktop,
 };

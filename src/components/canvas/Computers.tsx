@@ -5,7 +5,11 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 import CanvasLoader from '../Loader';
 import { useBreakpointValue } from '@chakra-ui/react';
 
-const Computers = ({ isMobile }: { isMobile?: boolean }) => {
+const Computers = () => {
+	const isMobile = useBreakpointValue(
+		{ base: true, md: false },
+		{ ssr: false }
+	);
 	const computer = useGLTF('./desktop_pc/scene.gltf');
 
 	return (
@@ -31,11 +35,6 @@ const Computers = ({ isMobile }: { isMobile?: boolean }) => {
 };
 
 const ComputersCanvas = () => {
-	const isMobile = useBreakpointValue(
-		{ base: true, md: false },
-		{ ssr: false }
-	);
-
 	return (
 		<Canvas
 			resize={{ scroll: false }}
@@ -50,7 +49,7 @@ const ComputersCanvas = () => {
 					maxPolarAngle={Math.PI / 2}
 					minPolarAngle={Math.PI / 2}
 				/>
-				<Computers isMobile={isMobile} />
+				<Computers />
 			</Suspense>
 			<Preload all />
 		</Canvas>

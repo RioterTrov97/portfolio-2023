@@ -1,8 +1,15 @@
+import { Box, Image, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { desktop } from '../assets';
 import { styles } from '../styles';
 import { ComputersCanvas } from './canvas';
 
 const Hero = () => {
+	const isMobile = useBreakpointValue(
+		{ base: true, lg: false },
+		{ ssr: false }
+	);
+
 	return (
 		<section className={`relative w-full h-screen mx-auto`}>
 			<div
@@ -24,7 +31,20 @@ const Hero = () => {
 				</div>
 			</div>
 
-			<ComputersCanvas />
+			{isMobile ? (
+				<Box
+					position={'absolute'}
+					zIndex={99}
+					top="45vh"
+					left={0}
+					w="90vw"
+					ml="5vw"
+					maxW="90vw">
+					<Image src={desktop} alt="Desktop" rounded={20} w="100%" />
+				</Box>
+			) : (
+				<ComputersCanvas />
+			)}
 
 			<div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
 				<a href="#about">
